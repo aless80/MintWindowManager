@@ -17,18 +17,18 @@ fi
 SCREENWIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 SCREENHEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 
+#Experimental
 #Get mate panels
-for (( n=0; n<=4; n++ ))
-do 
-    ORIENTATION=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/toplevel-"$n"/ orientation);
-    echo "$n - ORIENTATION = $ORIENTATION"
-    if [ $ORIENTATION = "left" ]
-    then
-        PANELLEFT=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/toplevel-"$n"/ size)
-        echo "PANELLEFT = $PANELLEFT"
-    fi
-    
-done
+#for (( n=0; n<=4; n++ ))
+#do 
+#    ORIENTATION=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/toplevel-"$n"/ orientation);
+#    echo "$n - ORIENTATION = $ORIENTATION"
+#    if [ $ORIENTATION = "left" ]
+#    then
+#        PANELLEFT=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/toplevel-"$n"/ size)
+#        echo "PANELLEFT = $PANELLEFT"
+#    fi  
+#done
 
 #$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ orientation) #"bottom"
 PANELBOTTOM=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ size)
