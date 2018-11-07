@@ -9,11 +9,12 @@ I will use cardinal directions such as NW for North West to describe the positio
 For Linux Mint MATE the scripts take into account MATE panels on the bottom and on the left (if any). I personally use the following keyboard shortcuts to the following scripts: 
 
 
-| Ctrl + WinKey + Left | mvSW.sh |
-| :-------- | -------- |
-| Ctrl + WinKey + Right | mvSE.sh |
-| Shift + Ctrl + WinKey + Left | mvNW.sh |
-| Shift + Ctrl + WinKey + Right | mvNE.sh |
-| Ctrl + WinKey + Page Up | mvW.sh |
-| Ctrl + WinKey + Page Down | mvE.sh |
+| Keyboard Shortcut | Script | Action |
+| :-------- | -------- | -------|
+| Ctrl + WinKey + Left | mvSW.sh | Move window to the Bottom Left corner, resize to 50% or 66% screen width |
+| Ctrl + WinKey + Right | mvSE.sh | Move window to the Bottom Right corner, resize to 50% or 34% screen width |
+| Shift + Ctrl + WinKey + Left | mvNW.sh | Move window to the Top Left corner, resize to 50% or 66% screen width |
+| Shift + Ctrl + WinKey + Right | mvNE.sh | Move window to the Top Right corner, resize to 50% or 34% screen width |
+| Ctrl + WinKey + Page Up | mvW.sh | Move window to the Left, resize to 50% or 66% screen width |
+| Ctrl + WinKey + Page Down | mvE.sh | Move window to the Right, resize to 50% or 34% screen width |
 
