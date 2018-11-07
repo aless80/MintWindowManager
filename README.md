@@ -8,11 +8,12 @@ I will use cardinal directions such as NW for North West to describe the positio
 
 For Linux Mint MATE the scripts take into account MATE panels on the bottom and on the left (if any). I personally use the following keyboard shortcuts to the following scripts: 
 
---------
+
 | Ctrl + WinKey + Left | mvSW.sh |
+| :-------- | -------- |
 | Ctrl + WinKey + Right | mvSE.sh |
 | Shift + Ctrl + WinKey + Left | mvNW.sh |
 | Shift + Ctrl + WinKey + Right | mvNE.sh |
 | Ctrl + WinKey + Page Up | mvW.sh |
 | Ctrl + WinKey + Page Down | mvE.sh |
---------
+
