@@ -49,11 +49,7 @@ SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
 if [ $SCREENHEIGHTDIFF -lt 100 ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.33. Make it 25% of screen height"
-    xdotool windowsize $WINDOW $WIDTH $SCREENHEIGHT025
-    if [ $Y -gt 100 ]
-    then
-        xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$SCREENHEIGHT025))
-    fi
+    WINDOWHEIGHT=$SCREENHEIGHT025
 fi
 
 #If window has about 50% of screen height, make it 33%
@@ -63,11 +59,7 @@ SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
 if [ $SCREENHEIGHTDIFF -lt 100 ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.5. Make it 33% of screen height"
-    xdotool windowsize $WINDOW $WIDTH $SCREENHEIGHT033
-    if [ $Y -gt 100 ]
-    then
-        xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$SCREENHEIGHT033))
-    fi
+    WINDOWHEIGHT=$SCREENHEIGHT033
 fi
 
 #If window has about 66% of screen height, make it 50%
@@ -77,11 +69,7 @@ SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
 if [ $SCREENHEIGHTDIFF -lt 100 ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.66. Make it 50% of screen height"
-    xdotool windowsize $WINDOW $WIDTH $SCREENHEIGHT050
-    if [ $Y -gt 100 ]
-    then
-        xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$SCREENHEIGHT050))
-    fi
+    WINDOWHEIGHT=$SCREENHEIGHT050
 fi
 
 #If window is bigger than 66% of screen height, make it 66%
@@ -90,12 +78,16 @@ SCREENHEIGHTDIFF=$(($HEIGHT-$SCREENHEIGHT066)) #no modulus this time
 if [ $SCREENHEIGHTDIFF -gt 100 ]
 then
     echo "HEIGHT is greater than SCREENHEIGHT*0.66. Make it 66% of screen height"
-    xdotool windowsize $WINDOW $WIDTH $SCREENHEIGHT066
+    WINDOWHEIGHT=$SCREENHEIGHT066
+fi
+
+#Do the resizing and moving
+xdotool windowsize $WINDOW $WIDTH $WINDOWHEIGHT
     if [ $Y -gt 100 ]
     then
-        xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$SCREENHEIGHT066))
+    xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$WINDOWHEIGHT))
     fi
-fi
+
 
 #move to left
 if [ $X -lt 100 ]

@@ -41,7 +41,7 @@ then
 fi
 
 #Move to South East, for now 50% 50%
-xdotool windowsize $WINDOW $SCREENWIDTH050 $SCREENHEIGHT050
+xdotool windowsize $WINDOW $SCREENWIDTH050 y #$SCREENHEIGHT050
 xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH050)) $SCREENHEIGHT050
 
 #Resize and move window to the right
