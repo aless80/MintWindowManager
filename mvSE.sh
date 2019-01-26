@@ -40,9 +40,18 @@ then
 	wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
 fi
 
-#Move to South East, for now 50% 50%
-xdotool windowsize $WINDOW $SCREENWIDTH050 y #$SCREENHEIGHT050
-xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH050)) $SCREENHEIGHT050
+
+#Move to South East, for now 50% 50% or keep width smaller than 50%
+if [ $HEIGHT -lt $((SCREENHEIGHT050-100)) ] 
+then
+	echo "HEIGHT is lower than SCREENHEIGHT*0.5. Move it to the bottom-right part of the screen with original width"
+	xdotool windowsize $WINDOW $SCREENWIDTH050 y
+	xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH050)) $(($SCREENHEIGHT-$HEIGHT))
+else
+	echo "HEIGHT is greater than SCREENHEIGHT*0.5. Move it to the bottom-right part of the screen with 50% width"
+	xdotool windowsize $WINDOW $SCREENWIDTH050 $SCREENHEIGHT050
+	xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH050)) $SCREENHEIGHT050
+fi
 
 #Resize and move window to the right
 #Make window 50% of the screen width by default. If already 50% of the width, make it 34%

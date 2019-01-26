@@ -83,10 +83,10 @@ fi
 
 #Do the resizing and moving
 xdotool windowsize $WINDOW $WIDTH $WINDOWHEIGHT
-    if [ $Y -gt 100 ]
-    then
+if [ $Y -gt 100 ]
+then
     xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$WINDOWHEIGHT))
-    fi
+fi
 
 
 #move to left
