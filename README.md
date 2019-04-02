@@ -4,6 +4,9 @@ Window Manager for Linux Mint Mate
 ### Description
 Bash scripts to tile a window on a certain position of the screen and resizes them. The scripts can be used with keyboard shortcuts. The scripts are most suitable for Linux computers using wide monitors because they resize windows to 34%, 50%, or 66% of the screen width. 
 
+## Dependencies
+sudo apt install xdotool wmctrl x11-xserver-utils
+
 ### Description of bash scripts 
 This repository includes two types of script: scripts that tile windows (the mv\*.sh scripts) and scripts that resize windows by changing their heights (the resize\*.sh scripts).  
 
