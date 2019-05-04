@@ -3,42 +3,15 @@
 
 #Move the current window South West toggling its size between 66% and 50% of the screen width
 
-#Get vars with window properties (X, Y, WIDTH, HEIGHT)
-WINDOW=$(xdotool getwindowfocus)
-eval `xdotool getwindowgeometry --shell $WINDOW`
+#Get the directory of this script
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-#You can pass the window ID to the script
-if [ $# -eq 1 ] 
-then 
-    WINDOW=$1
-fi
+#Get variables: window properties (ID, X, Y, WIDTH, HEIGHT), screen width and height, panels, 
+. "$THIS_DIR/config.sh"
 
-#Get screen width and height
-SCREENWIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
-SCREENHEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
-
-#Get mate panels
-PANELBOTTOM=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/bottom/ size)
-PANELLEFT=$(gsettings get org.mate.panel.toplevel:/org/mate/panel/toplevels/toplevel-0/ size)
-
-#Correct for panels
-SCREENWIDTH=$(($SCREENWIDTH - $PANELLEFT))
-SCREENHEIGHT=$(($SCREENHEIGHT - $PANELBOTTOM))
-SCREENHEIGHT050=$(($SCREENHEIGHT/2))
-
-#Calculate here the 66%, 50% of screen width. Below I give a 100 'margin' to evaluate window size
-SCREENWIDTH066=$(($SCREENWIDTH/100*66))
-SCREENWIDTH050=$(($SCREENWIDTH/2))
 #Difference between window width and 50% screen width
 SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH050))
 SCREENWIDTHDIFF=${SCREENWIDTHDIFF#-} #modulus
-
-#First resize toggle maximization off but only if already maximized otherwise somehow the window gets maximized and it is ugly
-if [ $WIDTH -gt $(($SCREENWIDTH-100)) ] && [ $HEIGHT -gt $(($SCREENHEIGHT-100)) ] 
-then 
-	echo "Remove maximization"
-	wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
-fi
 
 #Move to South West, for now 50% 50% or keep width smaller than 50%
 if [ $HEIGHT -lt $((SCREENHEIGHT050-100)) ] 

@@ -5,7 +5,7 @@ Window Manager for Linux Mint Mate
 Bash scripts to tile a window on a certain position of the screen and resizes them. The scripts can be used with keyboard shortcuts. The scripts are most suitable for Linux computers using wide monitors because they resize windows to 34%, 50%, or 66% of the screen width. 
 
 ## Dependencies
-sudo apt install xdotool wmctrl x11-xserver-utils
+sudo apt install xdotool wmctrl dconf x11-xserver-utils
 
 ### Description of bash scripts 
 This repository includes two types of script: scripts that tile windows (the mv\*.sh scripts) and scripts that resize windows by changing their heights (the resize\*.sh scripts).  
@@ -32,35 +32,35 @@ This can be programmatically achieved by using these lines of code:
 first change 'mate' to your edition (e.g. cinnamon), and the path to this repository:
 
 ```
-dconf write /org/mate/desktop/keybindings/custom20/action "'bash Dropbox/scripts/linux/MateWM/mvSW.sh'"
+dconf write /org/mate/desktop/keybindings/custom20/action "'bash Dropbox/scripts/MateWM/mvSW.sh'"
 dconf write /org/mate/desktop/keybindings/custom20/name "'mvSW'"
 dconf write /org/mate/desktop/keybindings/custom20/binding "'<Primary><Mod4>Left'"
 
-dconf write /org/mate/desktop/keybindings/custom21/action "'bash Dropbox/scripts/linux/MateWM/mvSE.sh'"
+dconf write /org/mate/desktop/keybindings/custom21/action "'bash Dropbox/scripts/MateWM/mvSE.sh'"
 dconf write /org/mate/desktop/keybindings/custom21/name "'mvSE'"
 dconf write /org/mate/desktop/keybindings/custom21/binding "'<Primary><Mod4>Right'"
 
-dconf write /org/mate/desktop/keybindings/custom22/action "'bash Dropbox/scripts/linux/MateWM/mvNW.sh'"
+dconf write /org/mate/desktop/keybindings/custom22/action "'bash Dropbox/scripts/MateWM/mvNW.sh'"
 dconf write /org/mate/desktop/keybindings/custom22/name "'mvNW'"
 dconf write /org/mate/desktop/keybindings/custom22/binding "'<Primary><Shift><Mod4>Left'"
 
-dconf write /org/mate/desktop/keybindings/custom23/action "'bash Dropbox/scripts/linux/MateWM/mvNE.sh'"
+dconf write /org/mate/desktop/keybindings/custom23/action "'bash Dropbox/scripts/MateWM/mvNE.sh'"
 dconf write /org/mate/desktop/keybindings/custom23/name "'mvNE'"
 dconf write /org/mate/desktop/keybindings/custom23/binding "'<Primary><Shift><Mod4>Right'"
 
-dconf write /org/mate/desktop/keybindings/custom24/action "'bash Dropbox/scripts/linux/MateWM/mvW.sh'"
+dconf write /org/mate/desktop/keybindings/custom24/action "'bash Dropbox/scripts/MateWM/mvW.sh'"
 dconf write /org/mate/desktop/keybindings/custom24/name "'mvW'"
 dconf write /org/mate/desktop/keybindings/custom24/binding "'<Primary><Mod4>Page_Up'"
 
-dconf write /org/mate/desktop/keybindings/custom25/action "'bash Dropbox/scripts/linux/MateWM/mvE.sh'"
+dconf write /org/mate/desktop/keybindings/custom25/action "'bash Dropbox/scripts/MateWM/mvE.sh'"
 dconf write /org/mate/desktop/keybindings/custom25/name "'mvE'"
 dconf write /org/mate/desktop/keybindings/custom25/binding "'<Primary><Mod4>Page_Down'"
 
-dconf write /org/mate/desktop/keybindings/custom26/action "'bash Dropbox/scripts/linux/MateWM/resizeup.sh'"
+dconf write /org/mate/desktop/keybindings/custom26/action "'bash Dropbox/scripts/MateWM/resizeup.sh'"
 dconf write /org/mate/desktop/keybindings/custom26/name "'resizeup'"
 dconf write /org/mate/desktop/keybindings/custom26/binding "'<Primary><Mod4>Up'"
 
-dconf write /org/mate/desktop/keybindings/custom27/action "'bash Dropbox/scripts/linux/MateWM/resizedown.sh'"
+dconf write /org/mate/desktop/keybindings/custom27/action "'bash Dropbox/scripts/MateWM/resizedown.sh'"
 dconf write /org/mate/desktop/keybindings/custom27/name "'resizedown'"
 dconf write /org/mate/desktop/keybindings/custom27/binding "'<Primary><Mod4>Down'"
 ```
