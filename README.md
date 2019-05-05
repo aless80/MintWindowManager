@@ -5,7 +5,7 @@ Window Manager for Linux Mint Mate
 Bash scripts to tile a window on a certain position of the screen and resizes them. The scripts can be used with keyboard shortcuts. The scripts are most suitable for Linux computers using relatively wide monitors because they resize windows to 34%, 50%, or 66% of the screen width. More specifically, I developed these scripts working on a 27" monitor and a 37.5" Curved one.
 
 ## Dependencies
-sudo apt install xdotool wmctrl dconf x11-xserver-utils
+```sudo apt install xdotool wmctrl dconf x11-xserver-utils```
 
 ### Description of bash scripts 
 This repository includes two types of script: scripts that tile windows (the mv\*.sh scripts) and scripts that resize windows by changing their heights (the resize\*.sh scripts). The window width depend on the resolution width of the display; if greater than 3200px I assume the monitor is "ultrawide" (e.g. monitor width is 37.5" or more). 
@@ -22,11 +22,11 @@ I personally use the following keyboard shortcuts to the following scripts:
 | Keyboard Shortcut | Script | Action |
 | :-------- | -------- | -------|
 | Ctrl + WinKey + Up | resizeup.sh | Increase a window's height to 33%, 50%, 66%, or 75% of the screen height |
-| Ctrl + WinKey + Down | resizedown.sh | Decrease a window's height to 25%,33%, 50%, or 66% of the screen height |
+| Ctrl + WinKey + Down | resizedown.sh | Decrease a window's height to 25%, 33%, 50%, or 66% of the screen height |
 
 For "normally" wide monitors about 27" wide:
 
-| | | |
+| Keyboard Shortcut | Script | Action |
 | :-------- | -------- | -------|
 | Ctrl + WinKey + Page Up | mvW.sh | Move window to the Left, resize to 50% or 66% of screen width |
 | Ctrl + WinKey + Page Down | mvE.sh | Move window to the Right, resize to 50% or 34% of screen width |
@@ -37,7 +37,7 @@ For "normally" wide monitors about 27" wide:
 
 For ultrawide monitors 37.5" wide and more: 
 
-| | | |
+| Keyboard Shortcut | Script | Action |
 | :-------- | -------- | -------|
 | Ctrl + WinKey + 1 | mvW.sh | Move window to the Left, resize to 34% or 50% of screen width |
 | Ctrl + WinKey + 2 | mvC.sh | Move window to the Center, resize to 34% of screen width |
