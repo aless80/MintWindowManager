@@ -19,7 +19,7 @@ xdotool windowmove $WINDOW $PANELLEFT 0
 
 #Resize and move window to the left
 #Make window 50% of the screen width by default. If already 50% of the width, make it 66%
-if [ $X -lt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF -lt 100 ]
+if [ $X -lt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF50 -lt 100 ]
 then
     echo "WIDTH is close to SCREENWIDTH*0.5. Make it 66% then move to the left part of the screen"
     xdotool windowsize $WINDOW $SCREENWIDTH066 $SCREENHEIGHT050 #--sync can make it hang
