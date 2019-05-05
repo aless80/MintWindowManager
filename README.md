@@ -25,6 +25,8 @@ I personally use the following keyboard shortcuts to the following scripts:
 | Ctrl + WinKey + Down | resizedown.sh | Decrease a window's height to 25%,33%, 50%, or 66% of the screen height |
 
 For "normally" wide monitors about 27" wide:
+
+| | | |
 | :-------- | -------- | -------|
 | Ctrl + WinKey + Page Up | mvW.sh | Move window to the Left, resize to 50% or 66% of screen width |
 | Ctrl + WinKey + Page Down | mvE.sh | Move window to the Right, resize to 50% or 34% of screen width |
@@ -34,6 +36,8 @@ For "normally" wide monitors about 27" wide:
 | Shift + Ctrl + WinKey + Right | mvNE.sh | Move window to the Top Right corner, resize to 50% or 34% of screen width |
 
 For ultrawide monitors 37.5" wide and more: 
+
+| | | |
 | :-------- | -------- | -------|
 | Ctrl + WinKey + 1 | mvW.sh | Move window to the Left, resize to 34% or 50% of screen width |
 | Ctrl + WinKey + 2 | mvC.sh | Move window to the Center, resize to 34% of screen width |
