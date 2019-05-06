@@ -22,6 +22,6 @@ xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH050)) 0
 if [ $X -gt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF50 -lt 100 ]
 then
     echo "WIDTH is close to SCREENWIDTH*0.5. Make it 34% then move to the right part of the screen"
-    xdotool windowsize $WINDOW $SCREENWIDTH034 $SCREENHEIGHT050 #--sync can make it hang
-    xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH034)) 0
+    xdotool windowsize $WINDOW $SCREENWIDTH033 $SCREENHEIGHT050 #--sync can make it hang
+    xdotool windowmove $WINDOW $(($SCREENWIDTH+$PANELLEFT-$SCREENWIDTH033)) 0
 fi

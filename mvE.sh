@@ -13,10 +13,10 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if $ULTRAWIDE
 then
-	FINALWIDTH=$SCREENWIDTH034
+	FINALWIDTH=$SCREENWIDTH033
 	#Difference between window width and 34% screen width
-	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH034))
-	XPOSITIONDIFF=$(($X-$PANELLEFT-$SCREENWIDTH034))
+	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH033))
+	XPOSITIONDIFF=$(($X-$PANELLEFT-$SCREENWIDTH033))
 else
 	FINALWIDTH=$SCREENWIDTH050
 	#Difference between window width and 50% screen width
@@ -27,21 +27,21 @@ SCREENWIDTHDIFF=${SCREENWIDTHDIFF#-} #modulus
 
 #Move to East
 xdotool windowsize $WINDOW $FINALWIDTH $SCREENHEIGHT
-xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH-$FINALWIDTH)) 0
+xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH033*2)) 0
 
 #Resize and move window to the right
 #  wide monitors: window width 50% by default. If already 50% make it 34% wide
 #  ultrawide monitors: window width 34% by default. If already 34% make it 50% wide
-if [ $XPOSITIONDIFF -gt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF -lt 100 ]
+if [ $XPOSITIONDIFF -gt 100 ] && [ $HEIGHT -gt $(($SCREENHEIGHT-200)) ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF -lt 100 ]
 then
 	if $ULTRAWIDE
 	then
 		FINALWIDTH=$SCREENWIDTH050
 		echo "WIDTH is close to SCREENWIDTH*0.34. Make it 50% then move to the right"
 	else
-		FINALWIDTH=$SCREENWIDTH034
+		FINALWIDTH=$SCREENWIDTH033
 		echo "WIDTH is close to SCREENWIDTH*0.5. Make it 34% then move to the right"
 	fi    
     xdotool windowsize $WINDOW $(($FINALWIDTH)) $SCREENHEIGHT #--sync can make it hang
-    xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH-$FINALWIDTH)) 0
+    xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH033*2)) 0
 fi

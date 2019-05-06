@@ -10,8 +10,8 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 #Get variables: window properties (ID, X, Y, WIDTH, HEIGHT), screen width and height, panels, 
 . "$THIS_DIR/config.sh"
 
-FINALWIDTH=$SCREENWIDTH034
+FINALWIDTH=$SCREENWIDTH033
 
 #Move to East
 xdotool windowsize $WINDOW $FINALWIDTH $SCREENHEIGHT
-xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH034)) 0
+xdotool windowmove $WINDOW $(($PANELLEFT+$SCREENWIDTH033)) 0

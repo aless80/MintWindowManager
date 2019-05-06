@@ -53,7 +53,7 @@ SCREENHEIGHT050=$(($MONITORHEIGHT/2))
 #Calculate 66%, 50%, 34% of screen width
 SCREENWIDTH066=$(($SCREENWIDTH/100*66))
 SCREENWIDTH050=$(($SCREENWIDTH/2))
-SCREENWIDTH034=$(($SCREENWIDTH/100*34))
+SCREENWIDTH033=$(($SCREENWIDTH/100*33))
 
 #Resize toggle maximization off but only if already maximized otherwise somehow the window gets maximized and it is ugly
 if [ $WIDTH -gt $(($SCREENWIDTH-100)) ] && [ $HEIGHT -gt $(($SCREENHEIGHT-100)) ] 

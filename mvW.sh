@@ -13,9 +13,9 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if $ULTRAWIDE
 then
-	FINALWIDTH=$SCREENWIDTH034
+	FINALWIDTH=$SCREENWIDTH033
 	#Difference between window width and 34% screen width
-	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH034))
+	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH033))
 else
 	FINALWIDTH=$SCREENWIDTH050
 	#Difference between window width and 50% screen width
