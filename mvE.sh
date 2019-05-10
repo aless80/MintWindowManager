@@ -14,15 +14,14 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 if $ULTRAWIDE
 then
 	FINALWIDTH=$SCREENWIDTH033
-	#Difference between window width and 34% screen width
-	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH033))
 	XPOSITIONDIFF=$(($X-$PANELLEFT-$SCREENWIDTH033))
 else
 	FINALWIDTH=$SCREENWIDTH050
-	#Difference between window width and 50% screen width
-	SCREENWIDTHDIFF=$(($WIDTH-$SCREENWIDTH050))
 	XPOSITIONDIFF=$X
 fi
+
+#Difference between window width and final window width
+SCREENWIDTHDIFF=$(($WIDTH-$FINALWIDTH))
 SCREENWIDTHDIFF=${SCREENWIDTHDIFF#-} #modulus
 
 #Move to East
