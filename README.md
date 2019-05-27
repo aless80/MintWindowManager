@@ -1,11 +1,11 @@
-# MateWM
-Window Manager for Linux Mint Mate
+# MintWindowManager
+Window Manager for Linux Mint (Mate, Cinnamon, etc)
 
 ### Description
 Bash scripts to tile a window on a certain position of the screen and resizes them. The scripts can be used with keyboard shortcuts. The scripts are most suitable for Linux computers using relatively wide monitors because they resize windows to 34%, 50%, or 66% of the screen width. More specifically, I developed these scripts working on a 27" monitor and a 37.5" Curved one.
 
 ## Dependencies
-```sudo apt install xdotool wmctrl dconf x11-xserver-utils```
+```sudo apt install xdotool wmctrl x11-xserver-utils```
 
 ### Description of bash scripts 
 This repository includes two types of script: scripts that tile windows (the mv\*.sh scripts) and scripts that resize windows by changing their heights (the resize\*.sh scripts). The window width depend on the resolution width of the display; if greater than 3200px I assume the monitor is "ultrawide" (e.g. monitor width is 37.5" or more). 
@@ -47,7 +47,7 @@ These keyboard shortcuts can be programmatically set by using these lines of cod
 
 ```
 #Change the following variable to the installation path
-INSTALLATIONPATH="Dropbox/scripts/MateWM"
+INSTALLATIONPATH="Dropbox/scripts/MintWM"
 
 RELEASE=`env | grep DESKTOP_SESSION= | sed 's/DESKTOP_SESSION=//'`
 
