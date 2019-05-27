@@ -33,13 +33,17 @@ do
 	esac
 done
 
-#Get monitor width and height
+#Get monitor resolution
 MONITORWIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 MONITORHEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 
+#Get physical size of monitor
+MONITORWIDTHMM=$(xrandr | grep ' connected' | uniq | awk -Fmm '{print $1}' | awk '{print $NF}')
+MONITORHEIGHTMM=$(xrandr | grep ' connected' | uniq | awk -Fmm '{print $2}' | awk '{print $2}')
+
 #Check resolution to estimate if monitor is ULTRAWIDE
 ULTRAWIDE=false
-if [ $MONITORWIDTH -gt 3200 ]
+if [ $MONITORWIDTHMM -gt 600 ]
 then ULTRAWIDE=true
 fi
 
