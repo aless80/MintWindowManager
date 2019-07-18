@@ -60,41 +60,41 @@ dconf write /org/${RELEASE}/desktop/keybindings/custom21/action "'bash ${INSTALL
 dconf write /org/${RELEASE}/desktop/keybindings/custom21/name "'resizedown'"
 dconf write /org/${RELEASE}/desktop/keybindings/custom21/binding "'<Primary><Mod4>Down'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/action "'bash ${INSTALLATIONPATH}/mvSW.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/name "'mvSW'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/binding "'<Primary><Mod4>Left'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom22/action "'bash ${INSTALLATIONPATH}/mvSW.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom22/name "'mvSW'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom22/binding "'<Primary><Mod4>Left'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom25/action "'bash ${INSTALLATIONPATH}/mvSE.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom25/name "'mvSE'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom25/binding "'<Primary><Mod4>Right'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom23/action "'bash ${INSTALLATIONPATH}/mvSE.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom23/name "'mvSE'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom23/binding "'<Primary><Mod4>Right'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom26/action "'bash ${INSTALLATIONPATH}/mvNW.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom26/name "'mvNW'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom26/binding "'<Primary><Shift><Mod4>Left'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom24/action "'bash ${INSTALLATIONPATH}/mvNW.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom24/name "'mvNW'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom24/binding "'<Primary><Shift><Mod4>Left'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom27/action "'bash ${INSTALLATIONPATH}/mvNE.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom27/name "'mvNE'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom27/binding "'<Primary><Shift><Mod4>Right'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom25/action "'bash ${INSTALLATIONPATH}/mvNE.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom25/name "'mvNE'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom25/binding "'<Primary><Shift><Mod4>Right'"
 
 #normal monitors
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/action "'bash ${INSTALLATIONPATH}/mvW.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/name "'mvW'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/binding "'<Primary><Mod4>Page_Up'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom26/action "'bash ${INSTALLATIONPATH}/mvW.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom26/name "'mvW'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom26/binding "'<Primary><Mod4>Page_Up'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/action "'bash ${INSTALLATIONPATH}/mvE.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/name "'mvE'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/binding "'<Primary><Mod4>Page_Down'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom27/action "'bash ${INSTALLATIONPATH}/mvE.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom27/name "'mvE'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom27/binding "'<Primary><Mod4>Page_Down'"
 
 #wide monitors
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/action "'bash ${INSTALLATIONPATH}/mvW.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/name "'mvW'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom22/binding "'<Primary><Mod4>1'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom28/action "'bash ${INSTALLATIONPATH}/mvW.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom28/name "'mvW'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom28/binding "'<Primary><Mod4>1'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/action "'bash ${INSTALLATIONPATH}/mvE.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/name "'mvE'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom23/binding "'<Primary><Mod4>3'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom29/action "'bash ${INSTALLATIONPATH}/mvE.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom29/name "'mvE'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom29/binding "'<Primary><Mod4>3'"
 
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/action "'bash ${INSTALLATIONPATH}/mvC.sh'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/name "'mvC'"
-dconf write /org/${RELEASE}/desktop/keybindings/custom24/binding "'<Primary><Mod4>2'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom30/action "'bash ${INSTALLATIONPATH}/mvC.sh'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom30/name "'mvC'"
+dconf write /org/${RELEASE}/desktop/keybindings/custom30/binding "'<Primary><Mod4>2'"
 ```

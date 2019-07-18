@@ -37,9 +37,21 @@ done
 MONITORWIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 MONITORHEIGHT=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
 
-#Get physical size of monitor
-MONITORWIDTHMM=$(xrandr | grep ' connected' | uniq | awk -Fmm '{print $1}' | awk '{print $NF}')
-MONITORHEIGHTMM=$(xrandr | grep ' connected' | uniq | awk -Fmm '{print $2}' | awk '{print $2}')
+#Get physical size of monitor. Unfortunately xrandr is wrong with my ultrawide 37.5" external monitor!
+MONITORWIDTHMM=$(xrandr | grep ' connected' | grep 'mm x ' | uniq | awk -Fmm '{print $1}' | awk '{print $NF}')
+MONITORHEIGHTMM=$(xrandr | grep ' connected' | grep 'mm x ' | uniq | awk -Fmm '{print $2}' | awk '{print $2}')
+
+#Hopefully xdpyinfo is better TODO 
+MONITORWIDTHMM2=$(xdpyinfo | grep 'dimensions:' | awk -F\( '{print $2}' | awk -Fx '{print $1}')
+MONITORHEIGHTMM2=$(xdpyinfo | grep 'dimensions:' | awk -F\( '{print $2}' | awk -Fx '{print $NF}' | awk '{print $1}')
+
+if [ MONITORWIDTHMM2 > MONITORWIDTHMM ]
+then 
+echo "MONITORWIDTHMM MONITORWIDTHMM2 = $MONITORWIDTHMM $MONITORWIDTHMM2 "
+	MONITORWIDTHMM=$MONITORWIDTHMM2
+echo "MONITORWIDTHMM MONITORWIDTHMM2 = $MONITORWIDTHMM $MONITORWIDTHMM2 "
+fi
+
 
 #Check resolution to estimate if monitor is ULTRAWIDE
 ULTRAWIDE=false
