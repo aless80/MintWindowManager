@@ -2,7 +2,7 @@
 #set -x
 
 #Move the current window South East
-#  wide monitors: toggle window size between 34% and 50% of the screen width
+#  normal monitors: toggle window size between 34% and 50% of the screen width
 #  ultrawide monitors: toggle window size between 34% and 50% of the screen width
 
 #Get the directory of this script
@@ -35,9 +35,9 @@ else
 fi
 
 #Resize and move window to the right
-#  wide monitors: window width 50% by default. If already 50% make it 34% wide
+#  normal monitors: window width 50% by default. If already 50% make it 34% wide
 #  ultrawide monitors: window width 34% by default. If already 34% make it 50% wide
-if [ $X -gt 100 ] && [ $Y -gt $((SCREENHEIGHT050-100)) ] && [ $SCREENWIDTHDIFF -lt 100 ]
+if [ $X -gt 100 ] && [ $Y -gt $((SCREENHEIGHT050-100)) ] && [ $SCREENWIDTHDIFF -lt $HEIGHTDIFFCONST ]
 then
 	if $ULTRAWIDE
 	then

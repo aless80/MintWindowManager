@@ -1,17 +1,13 @@
 #\bin\bash
-set -x
+#set -x
 
 #Move the current window North West toggling its size between 66% and 50% of the screen width
 
-#Get vars with window properties (X, Y, WIDTH, HEIGHT)
-WINDOW=$(xdotool getwindowfocus)
-eval `xdotool getwindowgeometry --shell $WINDOW`
+#Get the directory of this script
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-#You can pass the window ID to the script
-if [ $# -eq 1 ] 
-then 
-    WINDOW=$1
-fi
+#Get variables: window properties (ID, X, Y, WIDTH, HEIGHT), screen width and height, panels, 
+. "$THIS_DIR/config.sh"
 
 #Get screen width and height
 SCREENWIDTH=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
@@ -30,6 +26,7 @@ SCREENHEIGHT025=$(($SCREENHEIGHT/100*25))
 SCREENHEIGHT033=$(($SCREENHEIGHT/100*33))
 SCREENHEIGHT050=$(($SCREENHEIGHT/2))
 SCREENHEIGHT066=$(($SCREENHEIGHT/100*66))
+SCREENHEIGHT075=$(($SCREENHEIGHT/100*75))
 
 #Calculate here the 66%, 50% of screen height. Below I give a 100 'margin' to evaluate window size
 #SCREENWIDTH066=$(($SCREENWIDTH/100*66))
@@ -46,7 +43,7 @@ fi
 #Difference between window height and 25% screen height
 SCREENHEIGHTDIFF=$(($HEIGHT-$SCREENHEIGHT025))
 SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
-if [ $SCREENHEIGHTDIFF -lt 100 ]
+if [ $SCREENHEIGHTDIFF -lt $HEIGHTDIFFCONST ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.25. Make it 33% of screen height"
     WINDOWHEIGHT=$SCREENHEIGHT033
@@ -56,7 +53,7 @@ fi
 #Difference between window height and 33% screen height
 SCREENHEIGHTDIFF=$(($HEIGHT-$SCREENHEIGHT033))
 SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
-if [ $SCREENHEIGHTDIFF -lt 100 ]
+if [ $SCREENHEIGHTDIFF -lt $HEIGHTDIFFCONST ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.33. Make it 50% of screen height"
     WINDOWHEIGHT=$SCREENHEIGHT050
@@ -66,20 +63,18 @@ fi
 #Difference between window height and 50% screen height
 SCREENHEIGHTDIFF=$(($HEIGHT-$SCREENHEIGHT050))
 SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
-if [ $SCREENHEIGHTDIFF -lt 100 ]
+if [ $SCREENHEIGHTDIFF -lt $HEIGHTDIFFCONST ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.50. Make it 66% of screen height"
     WINDOWHEIGHT=$SCREENHEIGHT066
 fi
 
 
-
-SCREENHEIGHT075=$(($SCREENHEIGHT/100*75))
 #If window has about 66% of screen height, make it 75%
 #Difference between window height and 66% screen height
 SCREENHEIGHTDIFF=$(($HEIGHT-$SCREENHEIGHT066))
 SCREENHEIGHTDIFF=${SCREENHEIGHTDIFF#-} #modulus
-if [ $SCREENHEIGHTDIFF -lt 100 ]
+if [ $SCREENHEIGHTDIFF -lt $HEIGHTDIFFCONST ]
 then
     echo "HEIGHT is close to SCREENHEIGHT*0.66. Make it 75% of screen height"
     WINDOWHEIGHT=$SCREENHEIGHT075
@@ -87,20 +82,20 @@ fi
 
 #Do the resizing and moving
 xdotool windowsize $WINDOW $WIDTH $WINDOWHEIGHT
-    if [ $Y -gt 100 ]
+if [ $Y -gt $HEIGHTDIFFCONST ]
     then
     xdotool windowmove $WINDOW $X $(($SCREENHEIGHT-$WINDOWHEIGHT))
 fi
 
 #move to left
-if [ $X -lt 100 ]
+if [ $X -lt $HEIGHTDIFFCONST ]
 then
-    echo "X position is lower than 100 px. Move the window to the west and keep the same y position"
+    echo "X position is lower than $HEIGHTDIFFCONST px. Move the window to the west and keep the same y position"
     xdotool windowmove $WINDOW $PANELLEFT y
     #sometimes (eg when window is in NW position) the $Y variable is off for some reason. move to top
-    if [ $Y -lt 100 ]
+    if [ $Y -lt $HEIGHTDIFFCONST ]
     then
-        echo "Y position is lower than 100 px. Move the window to the top of the screen"
+        echo "Y position is lower than $HEIGHTDIFFCONST px. Move the window to the top of the screen"
         xdotool windowmove $WINDOW x 0
     fi
 fi

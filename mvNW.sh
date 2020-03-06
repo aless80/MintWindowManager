@@ -2,7 +2,7 @@
 #set -x
 
 #Move the current window North West
-#  wide monitors: toggle window size between 34% and 50% of the screen width
+#  normal monitors: toggle window size between 34% and 50% of the screen width
 #  ultrawide monitors: toggle window size between 34% and 50% of the screen width
 
 #Get the directory of this script
@@ -23,14 +23,14 @@ SCREENWIDTHDIFF=$(($WIDTH-$FINALWIDTH))
 SCREENWIDTHDIFF=${SCREENWIDTHDIFF#-} #modulus
 
 #Resize and move window to the North West
-#  wide monitors: window width 50% by default. If already 50% make it 66% wide
+#  normal monitors: window width 50% by default. If already 50% make it 66% wide
 #  ultrawide monitors: window width 34% by default. If already 34% make it 50% wide
 xdotool windowsize $WINDOW $FINALWIDTH y #$SCREENHEIGHT050
 xdotool windowmove $WINDOW $PANELLEFT 0
 
 #Resize and move window to the left
 #Make window 50% of the screen width by default. If already 50% of the width, make it 66%
-if [ $X -lt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF -lt 100 ]
+if [ $X -lt $HEIGHTDIFFCONST ] && [ $Y -lt $HEIGHTDIFFCONST ] && [ $SCREENWIDTHDIFF -lt $HEIGHTDIFFCONST ]
 then
 	if $ULTRAWIDE
 	then

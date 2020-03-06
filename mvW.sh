@@ -2,7 +2,7 @@
 #set -x
 
 #Move the current window West 
-#  wide monitors: toggle window size between 66% and 50% of the screen width
+#  normal monitors: toggle window size between 66% and 50% of the screen width
 #  ultrawide monitors: toggle window size between 34% and 50% of the screen width
 
 #Get the directory of this script
@@ -13,10 +13,15 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if $ULTRAWIDE
 then
-	FINALWIDTH=$SCREENWIDTH033
+	#FINALWIDTH=$(($SCREENWIDTH - $SCREENWIDTHULTRA))
+    #FINALWIDTH=$(($FINALWIDTH/2)) #this works less nicely
+    FINALWIDTH=$SCREENWIDTHULTRALATERAL
 else
 	FINALWIDTH=$SCREENWIDTH050
 fi
+
+#Because it gets moved to the West, left space is 0+PANELLEFT
+LEFTSPACE=$PANELLEFT
 
 #Difference between window width and final window width
 SCREENWIDTHDIFF=$(($WIDTH-$FINALWIDTH))
@@ -27,20 +32,20 @@ xdotool windowsize $WINDOW $FINALWIDTH $SCREENHEIGHT
 xdotool windowmove $WINDOW $PANELLEFT 0
 
 #Resize and move window to the left
-#  wide monitors: window width 66% by default. If already 66% make it 50% wide
-#  ultrawide monitors: window width 34% by default. If already 34% make it 50% wide
-if [ $X -lt 100 ] && [ $Y -lt 100 ] && [ $SCREENWIDTHDIFF -lt 100 ]
+#  normal monitors: window width 66% by default. If already 66% make it 50% wide
+#  ultrawide monitors: window width SCREENWIDTHULTRA by default. If already default make it 33% wide
+if [ $X -lt $HEIGHTDIFFCONST ] && [ $Y -lt $HEIGHTDIFFCONST ] && [ $SCREENWIDTHDIFF -lt $HEIGHTDIFFCONST ]
 then
 	if $ULTRAWIDE
 	then
-		FINALWIDTH=$SCREENWIDTH050
-		echo "WIDTH is close to SCREENWIDTH*0.34. Make it 50% then move to the left"
+		FINALWIDTH=$SCREENWIDTH033
+		echo "WIDTH is close to default SCREENWIDTH. Make it 33% then move to the left"
 	else
 		FINALWIDTH=$SCREENWIDTH066
 		echo "WIDTH is close to SCREENWIDTH*0.5. Make it 66% then move to the left"
 	fi
     xdotool windowsize $WINDOW $FINALWIDTH $SCREENHEIGHT #--sync can make it hang
-    xdotool windowmove $WINDOW $PANELLEFT 0
+    xdotool windowmove $WINDOW $(($PANELLEFT+$LEFTSPACE)) 0 0
 fi
 
 CHECK=1
@@ -51,9 +56,14 @@ do
 	then
 		echo "X=$X not right. Subtract CHECK*5px=$(($CHECK*4)) to SCREENHEIGHT "
     	xdotool windowsize $WINDOW $FINALWIDTH $(($SCREENHEIGHT-$CHECK*4)) #--sync can make it hang
-    	xdotool windowmove $WINDOW $PANELLEFT 0
+    	xdotool windowmove $WINDOW $(($PANELLEFT+$LEFTSPACE)) 0 0
     	CHECK=$(($CHECK+1))
     else 
     	CHECK=10
 	fi
 done
+
+echo "SCREENWIDTH=$SCREENWIDTH"
+echo "SCREENWIDTHULTRA=$SCREENWIDTHULTRA"
+echo "FINALWIDTH=$FINALWIDTH"
+echo "LEFTSPACE=$LEFTSPACE"
