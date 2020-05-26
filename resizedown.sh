@@ -1,5 +1,5 @@
 #\bin\bash
-set -x
+#set -x
 
 #Move the current window North West toggling its size between 66% and 50% of the screen width
 
@@ -22,13 +22,13 @@ SCREENWIDTH=$(($SCREENWIDTH - $PANELLEFT))
 SCREENHEIGHT=$(($SCREENHEIGHT - $PANELBOTTOM))
 
 #Calculate here the 33%, 66%, 50% of screen height
-SCREENHEIGHT025=$(($SCREENHEIGHT/100*25))
-SCREENHEIGHT033=$(($SCREENHEIGHT/100*33))
+SCREENHEIGHT025=$(($SCREENHEIGHT*25/100))
+SCREENHEIGHT033=$(($SCREENHEIGHT*33/100))
 SCREENHEIGHT050=$(($SCREENHEIGHT/2))
-SCREENHEIGHT066=$(($SCREENHEIGHT/100*66))
+SCREENHEIGHT066=$(($SCREENHEIGHT*66/100))
 
 #Calculate here the 66%, 50% of screen height. Below I give a 100 'margin' to evaluate window size
-#SCREENWIDTH066=$(($SCREENWIDTH/100*66))
+#SCREENWIDTH066=$(($SCREENWIDTH*66/100))
 #SCREENWIDTH050=$(($SCREENWIDTH/2))
 
 #First resize toggle maximization off but only if already maximized otherwise somehow the window gets maximized and it is ugly

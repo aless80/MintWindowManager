@@ -38,14 +38,9 @@ xdotool windowmove $WINDOW $(($PANELLEFT+$LEFTSPACE)) 0
 #  ultrawide monitors: window width SCREENWIDTHULTRA by default. If already default make it 33% wide
 if [ $XPOSITIONDIFF -gt 100 ] && [ $HEIGHT -gt $(($SCREENHEIGHT-200)) ] && [ $Y -lt $HEIGHTDIFFCONST ] && [ $SCREENWIDTHDIFF -lt $HEIGHTDIFFCONST ]
 then
-#	if $ULTRAWIDE
-#	then
-		FINALWIDTH=$SCREENWIDTH033
-		echo "WIDTH is close to default SCREENWIDTH. Make it 33% then move to the right"
-#	else
-#		FINALWIDTH=$SCREENWIDTH033
-#		echo "WIDTH is close to SCREENWIDTH*0.5. Make it 34% then move to the right"
-#	fi    
+	FINALWIDTH=$SCREENWIDTH033
+	LEFTSPACE=$(($SCREENWIDTH-$FINALWIDTH))
+	echo "WIDTH is close to default SCREENWIDTH. Make it 33% then move to the right"
     xdotool windowsize $WINDOW $(($FINALWIDTH)) $SCREENHEIGHT #--sync can make it hang
     xdotool windowmove $WINDOW $(($PANELLEFT+$LEFTSPACE)) 0
 fi
